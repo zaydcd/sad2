@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Саженцы | Подбор и заказ</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="order-container">
+      <div class="order-header">
+        <h1>🌳 САЖЕНЦЫ ДЛЯ ВАШЕГО САДА 🌿</h1>
+        <p>
+          🍎 Выберите саженцы через каталог или воспользуйтесь формой подбора
+        </p>
+      </div>
+      <div class="order-body">
+        <!-- Вкладки -->
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="catalog">🛒 Заявка</button>
+          <button class="tab-btn" data-tab="selector">
+            🔍 Подбор саженцев
+          </button>
+        </div>
+
+        <!-- Вкладка Заявка (бывший каталог) -->
+        <div id="catalogTab" class="tab-content active">
+          <div class="items-table-wrapper">
+            <table class="order-table" id="orderTable">
+              <thead>
+                <tr>
+                  <th>Саженец</th>
+                  <th>Цена (₽)</th>
+                  <th>Количество</th>
+                  <th>Сумма (₽)</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="orderRowsContainer"></tbody>
+            </table>
+            <div id="emptyMessage" class="empty-row-msg">
+              🌱 Заявка пуста. Нажмите «Добавить саженец», чтобы начать
+            </div>
+          </div>
+          <div class="action-bar">
+            <div class="btn-group">
+              <button class="add-row-btn" id="addRowBtn">
+                + Добавить саженец
+              </button>
+              <button
+                class="copy-order-btn"
+                id="copyOrderBtn"
+                title="Скопировать текст заявки в буфер обмена"
+              >
+                📋 Копировать в буфер
+              </button>
+              <button class="email-order-btn" id="emailOrderBtn">
+                ✉️ Отправить на почту
+              </button>
+              <button class="messenger-order-btn" id="messengerOrderBtn">
+                💬 Отправить в мессенджер
+              </button>
+              <button
+                class="messenger-order-btn"
+                id="maxOrderBtn"
+                style="background: linear-gradient(135deg, #f5a623, #e67e22)"
+              >
+                💛 MAX
+              </button>
+            </div>
+            <div class="total-section">
+              <span class="total-label">Общая стоимость:</span>
+              <span class="total-amount" id="grandTotal">0 ₽</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Вкладка Подбор саженцев -->
+        <div id="selectorTab" class="tab-content">
+          <div class="selector-container">
+            <div class="selector-filters">
+              <h3>🎯 Подберите саженец по характеристикам</h3>
+              <div class="filter-group">
+                <label class="filter-label">🌿 Тип растения:</label>
+                <div class="filter-options">
+                  <label class="filter-check"
+                    ><input type="checkbox" value="tree" /> 🌳 Дерево</label
+                  >
+                  <label class="filter-check"
+                    ><input type="checkbox" value="shrub" /> 🌿 Кустарник</label
+                  >
+                </div>
+              </div>
+              <div class="filter-group">
+                <label class="filter-label">🍎 Тип плодов:</label>
+                <div class="filter-options">
+                  <label class="filter-check"
+                    ><input type="checkbox" value="apple" /> 🍎 Яблоки</label
+                  >
+                  <label class="filter-check"
+                    ><input type="checkbox" value="pear" /> 🍐 Груши</label
+                  >
+                  <label class="filter-check"
+                    ><input type="checkbox" value="cherry" /> 🍒 Вишня</label
+                  >
+                  <label class="filter-check"
+                    ><input type="checkbox" value="plum" /> 🟣 Слива</label
+                  >
+                  <label class="filter-check"
+                    ><input type="checkbox" value="berry" /> 🍓 Ягоды</label
+                  >
+                </div>
+              </div>
+              <div class="filter-group">
+                <label class="filter-label">❄️ Зимостойкость:</label>
+                <div class="filter-options">
+                  <label class="filter-check"
+                    ><input type="checkbox" value="high" /> 🔥 Высокая (до
+                    -35°C)</label
+                  >
+                  <label class="filter-check"
+                    ><input type="checkbox" value="medium" /> 🌡️ Средняя (до
+                    -25°C)</label
+                  >
+                </div>
+              </div>
+              <button class="reset-filters-btn" id="resetFiltersBtn">
+                🔄 Сбросить фильтры
+              </button>
+            </div>
+            <div class="selector-results" id="selectorResults">
+              <!-- Карточки саженцев будут появляться здесь -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="order-footer">
+        <div class="contacts-info">
+          <div class="contact-item">
+            <span>📞</span><a href="tel:+78005553535">8 (800) 555-35-35</a>
+          </div>
+          <div class="contact-item">
+            <span>📱</span><a href="tel:+79161234567">+7 (916) 123-45-67</a>
+          </div>
+          <div class="contact-item">
+            <span>✉️</span
+            ><a href="mailto:order@example.com">order@example.com</a>
+          </div>
+          <div class="contact-item">
+            <span>💬</span><a href="mailto:support@shop.ru">support@shop.ru</a>
+          </div>
+        </div>
+        <div class="copyright">© 2025 Питомник «Зеленый сад»</div>
+      </div>
+    </div>
+
+    <!-- Модальное окно для email -->
+    <div id="emailModal" class="modal">
+      <div class="modal-content">
+        <h3>📧 Отправка заявки</h3>
+        <p>Email получателя:</p>
+        <input
+          type="email"
+          id="recipientEmail"
+          placeholder="email@example.ru"
+          value="order@example.com"
+        />
+        <div class="modal-buttons">
+          <button class="modal-cancel" id="cancelEmailBtn">Отмена</button>
+          <button class="modal-send" id="sendEmailBtn">Отправить</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модальное окно для выбора мессенджера -->
+    <div id="messengerModal" class="messenger-modal">
+      <div class="messenger-modal-content">
+        <h3>📱 Выберите мессенджер для отправки</h3>
+        <div class="messenger-buttons">
+          <button class="whatsapp-btn" id="whatsappChoiceBtn">
+            💚 WhatsApp
+          </button>
+          <button class="telegram-btn" id="telegramChoiceBtn">
+            💙 Telegram
+          </button>
+        </div>
+        <button class="cancel-messenger" id="cancelMessengerBtn">Отмена</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
